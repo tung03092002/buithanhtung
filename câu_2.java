@@ -2,87 +2,84 @@ import java.util.Scanner;
 
 public class câu_2 {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Nhap so phan tu trong mang: ");
-        int n = sc.nextInt();
+        Scanner s = new Scanner(System.in);
+        System.out.print("Mảng có số phần tử là : ");
+        int n = s.nextInt();
         int[] A = new int[n];
 
         //ý 1
-    for (int i = 0; i < n; i++) {
-        System.out.print("Nhập phần tử thứ" + i + ":");
-        A[i] = sc.nextInt();
-    }
-    System.out.println("\nMảng ban đầu: ");
-    for (int i = 0; i < n;i++) {
-        System.out.print(A[i] + "\t");
-    }
+        for (int i = 0; i < n; i++) {
+            System.out.print("Nhập giá trị phần tử thứ " + (i+1) + ": ");
+            A[i] = s.nextInt();
+        }
+        System.out.println("\nMảng vừa nhập: ");
+        for (int i = 0; i < n; i++) {
+            System.out.print(A[i] + "\t");
+        }
 
-    //ý 2
+        //ý 2
         int dem = 0;
-    for (int i = 0; i < n; i++) {
-        if (A[i] % 5 == 0 && A[i] % 6 != 0) {
-            dem++;
+        System.out.println("");
+        System.out.print("\nSố giá trị chia hết cho 3 mà không chia hết cho 4 là : ");
+        for (int i = 0; i < n; i++) {
+            if (A[i] % 3 == 0) {
+                if (A[i] % 4 != 0) {
+                    dem++;
+                }
+            }
         }
-    }
-    System.out.println("co" + dem + "giá trị chia hết cho 5 mà không chia hết cho 6");
+        System.out.println(dem);
 
-    //ý 3
-        int D = 0;
-        for (int i = 0; i < n;i++) {
-            if (A[i] % 2 == 1){
-                D++;
+        //ý 3
+        int max = A[0];
+        int min = A[0];
+        for (int i = 0; i < n; i++) {
+            if (max < A[i]) {
+                max = A[i];
+            }
+            if (min > A[i]) {
+                min = A[i];
+            }
         }
-    }
-    System.out.println("co" + D + "so le trong mang");
+        System.out.print("\nGiá trị lớn nhất trong mảng là : " + max);
+        System.out.print("\nGiá trị nhỏ nhất trong mảng là : " + min);
 
         //ý 4
-        int tong = 0;
-        int TB = 0;
-        for(int i = 0; i < n;i++) {
-            tong += A[i];
+        int X, m;
+        System.out.println("");
+        System.out.print("\nNhập vào giá trị cần kiểm tra trong mảng: ");
+        m = s.nextInt();
+        for (X = 0; X < n; X++) {
+            if (A[X] == m) {
+                System.out.println(m + " đang tồn tại trong mảng. ");
+                break;
+            }
         }
-        TB = tong/n;
+        if (X == n)
+            System.out.println(m + " không tồn tại trong mảng.");
+
+        //ý 5
         int Dem = 0;
-        for(int i = 0;i < n;i++) {
-            if (A[i] >= TB) {
+        for (int i = 0; i < n; i++) {
+            if (A[i] % 2 == 0) {
                 Dem++;
             }
         }
-        System.out.println("co" + Dem + "phan tu trong mang A co gia tri lơn hơn hoac bang gia tri trung binh");
+        System.out.println("\nSố các số chẵn trong mảng là : " + Dem);
 
-        //ý 5
-        int j = 0;
-        int[] C = new int[n];
-        for (int i = 0;i < n;i++) {
-            if (A[i] % 2 == 1){
-                C[j] = A[i];
+        //ý 6
+        int j =0;
+        int[] B = new int[n];
+        for (int i=0;i<n;i++) {
+            if (A[i] % 2 == 0) {
+                B[j] = A[i];
                 j++;
             }
         }
-        System.out.println("Cac phan tu cua mang C la:");
-        for(int i =0 ; i < j;i++) {
-            System.out.print(C[i] + "\t");
-        }
-
-        //ý 6
-        int a = 0;
-        System.out.print("\nNhap so can kiem tra : ");
-        int X = sc.nextInt();
-        for (int i = 0; i < n; i++) {
-            if (A[i] == X) {
-                a++;
-            }
-        }
-        if (a >= 2) {
-            System.out.println("Co ton tai gia tri " + X + " lap lai trong mang.");
-        } else {
-            System.out.println("Khong ton tai gia tri " + X +" lap lai trong mang.");
+        System.out.println("\nCác phần tử của mảng là số chẵn gồm: ");
+        for (int i = 0; i < j; i++) {
+            System.out.print(B[i] + "\t");
         }
     }
 }
-
-
-
-
-
 

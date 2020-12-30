@@ -2,15 +2,17 @@ import java.util.Scanner;
 
 public class câu_1 {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Nhap n :");
-        int n = sc.nextInt();
-        if (n > 2) {
-            if (n % 2 == 0) {
-                System.out.println(n + "la so chan");
-            } else {
-                System.out.println(n + "la so le");
-            }
-        }
+        Scanner s = new Scanner(System.in);
+        int a, b;
+        System.out.print("Nhập số thứ nhất: ");
+        a = s.nextInt();
+        System.out.print("Nhập số thứ hai: ");
+        b = s.nextInt();
+        System.out.println("\ngiá trị ban dầu của 2 số là: " + a + "  " + b);
+        int c = a;
+        a = b;
+        b = c;
+        System.out.println("\ngiá trị của 2 số sau khi hoán vị là: " + a + "  " + b);
+
     }
 }
